@@ -1,0 +1,12 @@
+= DjVu-Tools ChangeLog
+
+== 0.1.0
+
+=== Enhancements
+
+* Page numbering can now be specified with a spacing (delta) between numbers.
+* Added changelog.
+
+== 0.0.1
+
+=== Initial release

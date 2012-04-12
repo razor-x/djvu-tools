@@ -48,6 +48,10 @@ Then create sections to title or number:
 
     djvu.add_section( { start: 1, range: (21..500), type: :arabic } )
 
+* A range of pages with Arabic numerals starting with 1 and spaced 2 apart:
+
+    djvu.add_section( { start: 1, range: (21..500), type: :arabic, delta: 2 } )
+
 Finally, you must run djvused and write to the file with
 
     djvu.run

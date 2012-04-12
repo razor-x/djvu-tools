@@ -29,6 +29,14 @@ describe DjVuNumberer do
       @numberer.add_section section
     end
 
+    it "titles a range of pages with delta spacing" do
+      section = { start: 42, range: (10..20), type: :arabic, delta: 3 }
+      section[:range].each_with_index do |n, i|
+        @numberer.instance_eval{ @djvu }.should_receive(:title_page).with(n, "#{section[:start] + i * section[:delta]}")
+      end
+      @numberer.add_section section
+    end
+
     it "titles a range of pages with uppercase roman numerals" do
       section = { start: 3, range: (10..11), type: :upper_roman }
       @numberer.instance_eval{ @djvu }.should_receive(:title_page).with(10, "III")
