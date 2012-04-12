@@ -1,0 +1,83 @@
+= DjVu-Tools
+
+== What is DjVu-Tools?
+
+DjVu-Tools is a Ruby library for manipulating DjVu files. The interface is built on the DjVuLibre djvused[http://djvu.sourceforge.net/doc/man/djvused.html] command line tool provided by DjVuLibre[http://djvu.sourceforge.net/index.html]. Current tools include:
+
+* Easy page title management for page number generation.
+  The only way to achieve consistent page numbering for most books is to set the page title for each page.
+  The DjVuNumberer class provides  a way to title individual pages and number ranges of pages in various styles.
+
+== Installation
+
+Add this line to your application's Gemfile:
+
+  gem 'djvu-tools'
+
+And then execute:
+
+  $ bundle
+
+Or install it yourself as:
+
+  $ gem install djvu-tools
+
+== Using DjVu-Tools
+
+=== Numberer
+
+Fist pick a file to work on:
+
+  djvu = DjVuNumberer.new 'book.djvu'
+
+Then create sections to title or number:
+
+* A single page
+
+    djvu.add_section( { title: 'Cover', range: (1..1) } )
+
+* A range of pages with uppercase Roman numerals starting with I:
+
+    djvu.add_section( { start: 1, range: (2..10), type: :upper_roman } )
+
+* A range of pages with lowercase Roman numerals starting with x:
+
+    djvu.add_section( { start: 10, range: (11..20), type: :lower_roman } )
+
+* A range of pages with Arabic numerals starting with 1:
+
+    djvu.add_section( { start: 1, range: (21..500), type: :arabic } )
+
+Finally, you must run djvused and write to the file with
+
+    djvu.run
+
+If you get an error such as
+
+    File with TITLE 'foo' already exists in the DJVM directory.
+
+then a page with the same title already exists (this may be case intensive). You may wish to first relabel all of the pages with a range of numbers you will not use before you attempt again.
+
+== Development
+
+=== Source Repository
+
+DjVu-Tools is currently hosted at github. The github web page is
+https://github.com/razor-x/DjVu-Tools. To clone the project run
+
+  $ git clone git://github.com/razor-x/DjVu-Tools.git
+
+After cloning, you should run yard to generate documentation for the source.
+
+== License
+
+DjVu-Tools is released under the MIT license:
+
+* http://www.opensource.org/licenses/MIT
+
+== Warranty
+
+This software is provided "as is" and without any express or
+implied warranties, including, without limitation, the implied
+warranties of merchantibility and fitness for a particular
+purpose.
