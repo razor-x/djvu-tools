@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Ruby toolbox for manipulating DjVu files.}
   gem.summary       = %q{Ruby library for djvused. Currenly tools include: easy page title management for page number generation.}
   gem.homepage      = "http://evansosenko.com"
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
