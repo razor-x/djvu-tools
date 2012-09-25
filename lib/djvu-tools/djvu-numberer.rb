@@ -29,7 +29,7 @@ class DjVuNumberer < DjVuTools
           when :lower_roman
             RomanNumerals::to_roman(number).downcase
           end
-        @djvu.title_page n, "#{number}"
+        @djvu.title_page n, "#{section[:prefix]}#{number}#{section[:suffix]}"
       end
     end
   end
