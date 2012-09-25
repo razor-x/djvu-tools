@@ -1,5 +1,9 @@
 = DjVu-Tools ChangeLog
 
+== 0.2.2
+
+* Added support for page title prefix and suffix.
+
 == 0.1.0
 
 === Enhancements
