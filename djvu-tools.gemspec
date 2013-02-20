@@ -21,6 +21,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'which'
 
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'bump'
 
   gem.requirements  << 'djvused'
 end
