@@ -2,6 +2,7 @@
 *.rbc
 .bundle
 .config
+.kateproject.d
 .yardoc
 Gemfile.lock
 InstalledFiles
